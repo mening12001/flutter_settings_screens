@@ -1356,7 +1356,9 @@ class _DropDownSettingsTileState<T> extends State<DropDownSettingsTile<T>> {
               subtitleTextStyle: widget.subtitleTextStyle,
               showDivider: widget.showDivider,
               child: _SettingsDropDown<T>(
-                selected: value,
+                selected: widget.values.keys.toList().contains(value)
+                    ? value
+                    : widget.values.keys.toList()[0],
                 alignment: widget.alignment,
                 values: widget.values.keys.toList().cast<T>(),
                 onChanged: (newValue) =>

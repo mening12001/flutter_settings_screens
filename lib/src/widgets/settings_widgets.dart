@@ -1309,12 +1309,15 @@ class DropDownSettingsTile<T> extends StatefulWidget {
 
   final bool showDivider;
 
+  final TextStyle? itemStyle;
+
   const DropDownSettingsTile({
     super.key,
     required this.title,
     required this.settingKey,
     required this.selected,
     required this.values,
+    required this.itemStyle,
     this.enabled = true,
     this.onChange,
     this.subtitle = '',
@@ -1365,7 +1368,7 @@ class _DropDownSettingsTileState<T> extends State<DropDownSettingsTile<T>> {
                     _handleDropDownChange(newValue, onChanged),
                 enabled: widget.enabled,
                 itemBuilder: (T value) {
-                  return Text(widget.values[value]!);
+                  return Text(widget.values[value]!, style: widget.itemStyle);
                 },
               ),
             )

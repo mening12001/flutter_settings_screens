@@ -1317,7 +1317,7 @@ class DropDownSettingsTile<T> extends StatefulWidget {
     required this.settingKey,
     required this.selected,
     required this.values,
-    required this.itemStyle,
+    this.itemStyle,
     this.enabled = true,
     this.onChange,
     this.subtitle = '',
@@ -1368,7 +1368,9 @@ class _DropDownSettingsTileState<T> extends State<DropDownSettingsTile<T>> {
                     _handleDropDownChange(newValue, onChanged),
                 enabled: widget.enabled,
                 itemBuilder: (T value) {
-                  return Text(widget.values[value]!, style: widget.itemStyle);
+                  return widget.itemStyle != null
+                      ? Text(widget.values[value]!, style: widget.itemStyle)
+                      : Text(widget.values[value]!);
                 },
               ),
             )

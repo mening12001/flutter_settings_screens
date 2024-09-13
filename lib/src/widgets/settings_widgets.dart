@@ -1570,7 +1570,7 @@ class _SliderSettingsTileState extends State<SliderSettingsTile> {
               min: widget.min,
               step: widget.step,
             ),
-            _SettingsTileDivider(),
+            //_SettingsTileDivider(),
           ],
         );
       },
